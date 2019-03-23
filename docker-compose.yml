@@ -23,11 +23,11 @@ services:
                 --datadir /node/ \
                 --syncmode 'full' \
                 --port 30311 \
-                --rpc --rpcaddr 'localhost' --rpcport 8501 --rpcvhosts * --rpccorsdomain * \
+                --rpc --rpcaddr 0.0.0.0 --rpcport 8501 --rpcvhosts=* --rpccorsdomain * \
                 --rpcapi 'personal,db,eth,net,web3,txpool,miner' \
                 --bootnodes 'enode://abab5bae9e6fe74793eb1346a76108b47a112384235ee33070a48f1b3ee1049b79188bda42cf29138b356a3ab883b8615533ba4b591f6e661544c8d3b6eb69ce@192.168.0.10:30310' --networkid 1488 \
                 --miner.gasprice 0 --txpool.pricelimit 0 \
-                --unlock '0xe6bb974d1943b99daf64337b4dc5f3e751269890' --mine \
+                --unlock '0xe6bb974d1943b99daf64337b4dc5f3e751269890' --mine --minerthreads=1 \
                 --password /node/pwd"
     ports:
       - "8501:8501/tcp"
@@ -41,10 +41,10 @@ services:
     command: "geth \
                 --datadir /node/ \
                 --syncmode 'full' \
-                --port 30312 --rpc --rpcaddr 'localhost' --rpcport 8502 --rpcvhosts * --rpccorsdomain * \
+                --port 30312 --rpc --rpcaddr 0.0.0.0 --rpcport 8502 --rpcvhosts=* --rpccorsdomain * \
                 --rpcapi 'personal,db,eth,net,web3,txpool,miner' \
                 --bootnodes 'enode://abab5bae9e6fe74793eb1346a76108b47a112384235ee33070a48f1b3ee1049b79188bda42cf29138b356a3ab883b8615533ba4b591f6e661544c8d3b6eb69ce@192.168.0.10:30310' --networkid 1488 \
-                --unlock '0x45a30fddf3ee361b4aeaf864aec6dc5840235640' \
+                --unlock '0x45a30fddf3ee361b4aeaf864aec6dc5840235640' --mine --minerthreads=1 \
                 --password /node/pwd"
     ports:
       - "8502:8502/tcp"
