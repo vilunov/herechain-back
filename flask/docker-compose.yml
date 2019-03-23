@@ -1,0 +1,14 @@
+version: "3.0"
+
+services:
+  flask:
+    image: registry.vilunov.me/herechain/flask
+    build: .
+    ports:
+      - "80:80"
+    restart: always
+
+networks:
+  default:
+    external:
+      name: herechain_default
